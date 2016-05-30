@@ -3,17 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Miaomiaoxiong</title>
+  <title>git学习笔记 | Miaomiaoxiong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Miaomiaoxiong">
-<meta property="og:url" content="http://fengjunpku.github.io/index.html">
+  <meta name="description" content="用户配置12git config --global user.name &amp;quot;Your Name&amp;quot;git config --global user.email &amp;quot;email@example.com&amp;quot;
+如果用了 --global 选项，那么更改的配置文件就是位于你用户主目录下的那个(~/.gitconfig)，以后你所有的项目都会默认使用这里配置的用户信息。如果要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git学习笔记">
+<meta property="og:url" content="http://fengjunpku.github.io/2016/05/30/git学习笔记/index.html">
 <meta property="og:site_name" content="Miaomiaoxiong">
-<meta property="og:description">
+<meta property="og:description" content="用户配置12git config --global user.name &amp;quot;Your Name&amp;quot;git config --global user.email &amp;quot;email@example.com&amp;quot;
+如果用了 --global 选项，那么更改的配置文件就是位于你用户主目录下的那个(~/.gitconfig)，以后你所有的项目都会默认使用这里配置的用户信息。如果要">
+<meta property="og:updated_time" content="2016-05-30T14:00:47.666Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Miaomiaoxiong">
-<meta name="twitter:description">
+<meta name="twitter:title" content="git学习笔记">
+<meta name="twitter:description" content="用户配置12git config --global user.name &amp;quot;Your Name&amp;quot;git config --global user.email &amp;quot;email@example.com&amp;quot;
+如果用了 --global 选项，那么更改的配置文件就是位于你用户主目录下的那个(~/.gitconfig)，以后你所有的项目都会默认使用这里配置的用户信息。如果要">
   
     <link rel="alternate" href="/atom.xml" title="Miaomiaoxiong" type="application/atom+xml">
   
@@ -62,107 +66,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-OpenMP入门" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/05/30/OpenMP入门/" class="article-date">
-  <time datetime="2016-05-30T14:05:03.000Z" itemprop="datePublished">2016-05-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/30/OpenMP入门/">OpenMP入门</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="初步"><a href="#初步" class="headerlink" title="初步"></a>初步</h1><p>编译flag: <code>-fopenmp</code><br>头文件：<code>#include &quot;omp.h&quot;</code><br>代码中使用标识 ：<code>#pragma omp parallel</code></p>
-<hr>
-<h1 id="for循环并行化的约束条件"><a href="#for循环并行化的约束条件" class="headerlink" title="for循环并行化的约束条件"></a>for循环并行化的约束条件</h1><p>尽管OpenMP可以方便地对for循环进行并行化，但并不是所有的for循环都可以进行并行化。以下几种情况不能进行并行化：</p>
-<ol>
-<li>for循环中的循环变量必须是有符号整形。例如，<code>for (unsigned int i = 0; i &lt; 10; ++i){}</code>会编译不通过；</li>
-<li>for循环中比较操作符必须是<code>&lt;, &lt;=, &gt;, &gt;=</code>。例如<code>for (int i = 0; i ！= 10; ++i){}</code>会编译不通过；</li>
-<li>for循环中的第三个表达式，必须是整数的加减，并且加减的值必须是一个循环不变量。例如<code>for (int i = 0;i != 10;i = i + 1){}</code>会编译不通过；感觉只能<code>++i; i++; --i;</code> 或<code>i--;</code></li>
-<li>如果for循环中的比较操作为<code>&lt;</code>或<code>&lt;=</code>，那么循环变量只能增加；反之亦然。例如<code>for (int i = 0; i != 10; --i)</code>会编译不通过；</li>
-<li>循环必须是单入口、单出口，也就是说循环内部不允许能够达到循环以外的跳转语句，<code>exit</code>除外。异常的处理也必须在循环体内处理。例如：若循环体内的<code>break</code>或<code>goto</code>会跳转到循环体外，那么会编译不通过。</li>
-</ol>
-<hr>
-<h1 id="redcution工具"><a href="#redcution工具" class="headerlink" title="redcution工具"></a>redcution工具</h1><p><code>#pragma omp parallel for reduction(+:sum)</code><br>reduction虽然很方便，但它只支持一些基本操作，比如<code>+,-,*,&amp;,|,&amp;&amp;,||</code>等。有些情况下，我们既要避免race condition，但涉及到的操作又超出了reduction的能力范围，应该怎么办呢？这就要用到openMP的另一个工具，critical。来看下面的例子，该例中我们求数组a的最大值，将结果保存在max里。</p>
-<hr>
-<h1 id="critical工具实例"><a href="#critical工具实例" class="headerlink" title="critical工具实例"></a>critical工具实例</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">  int max = 0;</span><br><span class="line">  int a[10] = &#123;11,2,33,49,113,20,321,250,689,16&#125;;</span><br><span class="line">  #pragma omp parallel for</span><br><span class="line">  for(int i=0;i&lt;10;i++)</span><br><span class="line">  &#123;</span><br><span class="line">    int temp = a[i];</span><br><span class="line">    #pragma omp critical</span><br><span class="line">    &#123;</span><br><span class="line">      if(temp &gt; max)</span><br><span class="line">        max = temp;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  std::cout&lt;&lt;&quot;max: &quot;&lt;&lt;max&lt;&lt;std::endl;</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上例中，for循环还是被自动分成N份来并行执行，但我们用<code>#pragma omp critical</code>将<code>if (temp &gt; max) max = temp</code>括了起来，它的意思是：各个线程还是并行执行for里面的语句，但当你们执行到critical里面时，要注意有没有其他线程正在里面执行，如果有的话，要等其他线程执行完再进去执行。这样就避免了race condition问题，但显而易见，它的执行速度会变低，因为可能存在线程等待的情况。</p>
-<hr>
-<h1 id="sections工具"><a href="#sections工具" class="headerlink" title="sections工具"></a>sections工具</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#pragma omp parallel sections</span><br><span class="line">&#123;</span><br><span class="line">  #pragma omp section</span><br><span class="line">  &#123;</span><br><span class="line">    function1();</span><br><span class="line">  &#125;</span><br><span class="line">  #pragma omp section</span><br><span class="line">  &#123;</span><br><span class="line">    function2();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>parallel sections里面的内容要并行执行，具体分工上，每个线程执行其中的一个section，如果section数大于线程数，那么就等某线程执行完它的section后，再继续执行剩下的section。在时间上，这种方式与人为用vector构造for循环的方式差不多，但无疑该种方式更方便，而且在单核机器上或没有开启openMP的编译器上，该种方式不需任何改动即可正确编译，并按照单核串行方式执行。</p>
-<hr>
-<h1 id="API示例"><a href="#API示例" class="headerlink" title="API示例"></a>API示例</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">// 设置并行线程数 </span><br><span class="line">_OMPIMP void _OMPAPI omp_set_num_threads(int _Num_threads); </span><br><span class="line"> </span><br><span class="line">// 获取当前并行线程数 </span><br><span class="line">_OMPIMP int  _OMPAPI omp_get_num_threads(void); </span><br><span class="line"> </span><br><span class="line">// 获取当前系统最大可并行运行的线程数 </span><br><span class="line">_OMPIMP int  _OMPAPI omp_get_max_threads(void); </span><br><span class="line"> </span><br><span class="line">// 获取当前运行线程的ID，注意和操作系统中的线程ID不同 </span><br><span class="line">_OMPIMP int  _OMPAPI omp_get_thread_num(void); </span><br><span class="line"> </span><br><span class="line">// 获取当前系统中处理器数目 </span><br><span class="line">_OMPIMP int  _OMPAPI omp_get_num_procs(void); </span><br><span class="line"> </span><br><span class="line">_OMPIMP void _OMPAPI omp_set_dynamic(int _Dynamic_threads); </span><br><span class="line"> </span><br><span class="line">_OMPIMP int  _OMPAPI omp_get_dynamic(void); </span><br><span class="line"> </span><br><span class="line">_OMPIMP int  _OMPAPI omp_in_parallel(void); </span><br><span class="line"> </span><br><span class="line">_OMPIMP void _OMPAPI omp_set_nested(int _Nested); </span><br><span class="line"> </span><br><span class="line">_OMPIMP int  _OMPAPI omp_get_nested(void); </span><br><span class="line"> </span><br><span class="line">_OMPIMP void _OMPAPI omp_init_lock(omp_lock_t * _Lock); </span><br><span class="line"> </span><br><span class="line">_OMPIMP void _OMPAPI omp_destroy_lock(omp_lock_t * _Lock); </span><br><span class="line"> </span><br><span class="line">_OMPIMP void _OMPAPI omp_set_lock(omp_lock_t * _Lock); </span><br><span class="line"> </span><br><span class="line">_OMPIMP void _OMPAPI omp_unset_lock(omp_lock_t * _Lock); </span><br><span class="line"> </span><br><span class="line">_OMPIMP int  _OMPAPI omp_test_lock(omp_lock_t * _Lock); </span><br><span class="line"> </span><br><span class="line">_OMPIMP void _OMPAPI omp_init_nest_lock(omp_nest_lock_t * _Lock); </span><br><span class="line"> </span><br><span class="line">_OMPIMP void _OMPAPI omp_destroy_nest_lock(omp_nest_lock_t * _Lock); </span><br><span class="line"> </span><br><span class="line">_OMPIMP void _OMPAPI omp_set_nest_lock(omp_nest_lock_t * _Lock); </span><br><span class="line"> </span><br><span class="line">_OMPIMP void _OMPAPI omp_unset_nest_lock(omp_nest_lock_t * _Lock); </span><br><span class="line"> </span><br><span class="line">_OMPIMP int  _OMPAPI omp_test_nest_lock(omp_nest_lock_t * _Lock); </span><br><span class="line"> </span><br><span class="line">_OMPIMP double _OMPAPI omp_get_wtime(void); </span><br><span class="line"> </span><br><span class="line">_OMPIMP double _OMPAPI omp_get_wtick(void);</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fengjunpku.github.io/2016/05/30/OpenMP入门/" data-id="ciou38g090000q0msoccwkb9x" class="article-share-link">Partager</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-IPv6地址格式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/05/30/IPv6地址格式/" class="article-date">
-  <time datetime="2016-05-30T14:03:20.000Z" itemprop="datePublished">2016-05-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/30/IPv6地址格式/">IPv6地址格式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>IPv6的地址长度是128位（bit）。<br>将这128位的地址按每16位划分为一个段，将每个段转换成十六进制数字，并用冒号隔开。<br>例如：2000:0000:0000:0000:0001:2345:6789:abcd<br>这个地址很长，可以用两种方法对这个地址进行压缩，</p>
-<p>前导零压缩法：<br>将每一段的前导零省略，但是每一段都至少应该有一个数字<br>例如：2000:0:0:0:1:2345:6789:abcd<br>双冒号法：<br>如果一个以冒号十六进制数表示法表示的IPv6地址中，如果几个连续的段值都是0，那么这些0可以简记为::。每个地址中只能有一个::。<br>例如：2000::1:2345:6789:abcd</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fengjunpku.github.io/2016/05/30/IPv6地址格式/" data-id="ciou38g0f0001q0msn9xcv9q2" class="article-share-link">Partager</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-git学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-git学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/05/30/git学习笔记/" class="article-date">
   <time datetime="2016-05-30T13:59:43.000Z" itemprop="datePublished">2016-05-30</time>
@@ -175,8 +79,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/30/git学习笔记/">git学习笔记</a>
+    <h1 class="article-title" itemprop="name">
+      git学习笔记
     </h1>
   
 
@@ -254,10 +158,23 @@
     </footer>
   </div>
   
-</article>
-
+    
+<nav id="article-nav">
+  
+    <a href="/2016/05/30/IPv6地址格式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          IPv6地址格式
+        
+      </div>
+    </a>
+  
+  
+</nav>
 
   
+</article>
 
 </section>
         
