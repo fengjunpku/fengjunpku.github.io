@@ -64,6 +64,58 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-bloom-filter" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/02/bloom-filter/" class="article-date">
+  <time datetime="2016-06-02T07:49:51.000Z" itemprop="datePublished">2016-06-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/02/bloom-filter/">Bloom-Filter</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>布隆过滤器( Bloom filter)这种数据结构可以快速、高效地判断出一个元素是否在集合中。</p>
+<p> 这种高效率的代价是：布隆过滤器有可能作出误判，将一个集合外的元素也判定在集合中。</p>
+<p>布隆过滤器的基础结构是比特矢量，比如说一个15维的矢量，每个维度可以取值为0或1。</p>
+<p>一开始时每个维度均置为0，代表这个过滤器现在是空的。</p>
+<p>当有一个元素加入进来时，可以用2个独立的随机数产生器对元素处理（比如hash算法），产生两个信息指纹。</p>
+<p>然后用随机数生成器将这两个指纹映射到（0-14）的区间上，得到两个位置。</p>
+<p>将矢量中这两个位置的值置为1，即完成了加入操作。</p>
+<p>查询时，也是同样，如果一个元素映射的两个位置的值均为1，则元素已经在集合中了；否则在集合外。</p>
+<h2 id="误判估计"><a href="#误判估计" class="headerlink" title="误判估计"></a>误判估计</h2><ul>
+<li>设：<br>布隆过滤器大小： <code>m</code>比特<br>元素个数：  <code>n</code><br>散列函数个数：<code>k</code></li>
+<li>插入一个元素后：<br>任意比特为0的概率：<code>(1-1/m)^k</code></li>
+<li>插入<code>n</code>个元素后：<br>任意比特为0的概率：<code>(1-1/m)^nk</code><br>任意比特为1的概率：<code>1-(1-1/m)^nk</code></li>
+<li>一个在集合外的元素，若误判：<br>即：<code>k</code>个位置均为1<br>概率为：<code>{1-(1-1/m)^nk}^k~(1-e^(-kn/m))</code><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2>Bloom Filter : <a href="http://billmill.org/bloomfilter-tutorial/" target="_blank" rel="external">简单例子</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fengjunpku.github.io/2016/06/02/bloom-filter/" data-id="cioy06ri90001xkms12o6pv6e" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm/">algorithm</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-OpenMP_Intro" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/05/30/OpenMP_Intro/" class="article-date">
@@ -110,7 +162,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fengjunpku.github.io/2016/05/30/OpenMP_Intro/" data-id="ciouzpxmm00019omsqryzbv14" class="article-share-link">Share</a>
+      <a data-url="http://fengjunpku.github.io/2016/05/30/OpenMP_Intro/" data-id="cioy06rj10007xkmszf63twhj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li></ul>
@@ -150,7 +202,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fengjunpku.github.io/2016/05/30/IPv6_Intro/" data-id="ciouzpxmg00009omsrt772x6z" class="article-share-link">Share</a>
+      <a data-url="http://fengjunpku.github.io/2016/05/30/IPv6_Intro/" data-id="cioy06rhw0000xkmsgjgnj6el" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
@@ -246,7 +298,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fengjunpku.github.io/2016/05/30/git_note/" data-id="ciouzpxmr00039omsqvxjdh23" class="article-share-link">Share</a>
+      <a data-url="http://fengjunpku.github.io/2016/05/30/git_note/" data-id="cioy06riz0006xkmsczcijw0o" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
@@ -270,7 +322,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
+      <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
     </div>
   </div>
 
@@ -279,7 +331,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
     </div>
   </div>
 
@@ -290,6 +342,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/06/02/bloom-filter/">Bloom-Filter</a>
+          </li>
         
           <li>
             <a href="/2016/05/30/OpenMP_Intro/">OpenMP入门</a>
