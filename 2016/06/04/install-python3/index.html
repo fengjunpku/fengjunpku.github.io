@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Centos安装python3 | 熊窝</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Requirements1yum install zlib zlib-devel openssl openssl-devel
+Optional1yum install readline-devel sqlite-devel libbz2
+下载python3.5源码，编译安装，默认位置（/usr/local/bin）即可删除原有python命令到python2的链接，并建立到python3的新链接1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Centos安装python3">
+<meta property="og:url" content="http://fengjunpku.github.io/2016/06/04/install-python3/index.html">
+<meta property="og:site_name" content="熊窝">
+<meta property="og:description" content="Requirements1yum install zlib zlib-devel openssl openssl-devel
+Optional1yum install readline-devel sqlite-devel libbz2
+下载python3.5源码，编译安装，默认位置（/usr/local/bin）即可删除原有python命令到python2的链接，并建立到python3的新链接1">
+<meta property="og:updated_time" content="2016-06-04T11:40:31.174Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Centos安装python3">
+<meta name="twitter:description" content="Requirements1yum install zlib zlib-devel openssl openssl-devel
+Optional1yum install readline-devel sqlite-devel libbz2
+下载python3.5源码，编译安装，默认位置（/usr/local/bin）即可删除原有python命令到python2的链接，并建立到python3的新链接1">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">熊窝</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">miaomiaoxiong.net</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://fengjunpku.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-install-python3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/04/install-python3/" class="article-date">
+  <time datetime="2016-06-04T11:38:51.000Z" itemprop="datePublished">2016-06-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Centos安装python3
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install zlib zlib-devel openssl openssl-devel</span><br></pre></td></tr></table></figure>
+<p><strong>Optional</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install readline-devel sqlite-devel libbz2</span><br></pre></td></tr></table></figure></p>
+<h1 id="下载python3-5源码，编译安装，默认位置（-usr-local-bin）即可"><a href="#下载python3-5源码，编译安装，默认位置（-usr-local-bin）即可" class="headerlink" title="下载python3.5源码，编译安装，默认位置（/usr/local/bin）即可"></a>下载python3.5源码，编译安装，默认位置（<code>/usr/local/bin</code>）即可</h1><p>删除原有python命令到python2的链接，并建立到python3的新链接<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo rm /usr/bin/python</span><br><span class="line">ln -s /usr/local/bin/python3.5 /usr/bin/python</span><br></pre></td></tr></table></figure></p>
+<p>另外，记得更新yum配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/bin/yum</span><br></pre></td></tr></table></figure></p>
+<p>将第一行<code>#!/usr/bin/python</code>修改为<code>#!/usr/bin/python2</code></p>
+<h1 id="Install-setuptools"><a href="#Install-setuptools" class="headerlink" title="Install setuptools"></a>Install setuptools</h1><p>pip安装前需要先安装setuptools<br>在python官网搜索并下载setuptools源码<br>解压，进入目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python ez_setup.py</span><br></pre></td></tr></table></figure></p>
+<p>如果安装python3时第一节提到的依赖关系都有就不会报错。否则就检查依赖关系是否装完整，并重新编译安装python3</p>
+<h1 id="Install-pip"><a href="#Install-pip" class="headerlink" title="Install pip"></a>Install pip</h1><p>参考<a href="https://pip.pypa.io/en/stable/installing/" target="_blank" rel="external">pip’s installation instructions</a><br>下载<code>get-pip.py</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python get-pip.py</span><br></pre></td></tr></table></figure></p>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><a href="https://www.python.org" target="_blank" rel="external">Python官网</a><br><a href="http://stackoverflow.com/questions/6587507/how-to-install-pip-with-python-3" target="_blank" rel="external">sof上的帖子</a></p>
+<h2 id="测试：安装Pillow"><a href="#测试：安装Pillow" class="headerlink" title="测试：安装Pillow"></a>测试：安装Pillow</h2><p>依赖<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install libjpeg-devel libpng-devel</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fengjunpku.github.io/2016/06/04/install-python3/" data-id="cip1381si0004w0msvgbo6jwe" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/06/03/poem-at-nangjing/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">金陵春夜</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/mood/" style="font-size: 20px;">mood</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/scrapy/" style="font-size: 10px;">scrapy</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/06/04/install-python3/">Centos安装python3</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/03/poem-at-nangjing/">金陵春夜</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/03/Untitle-20160603/">无题</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/03/Scrapy-Sample/">Scrapy_Sample</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/02/bloom-filter/">Bloom-Filter</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Miaomiaoxiong<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

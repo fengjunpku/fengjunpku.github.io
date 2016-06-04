@@ -64,6 +64,54 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-install-python3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/04/install-python3/" class="article-date">
+  <time datetime="2016-06-04T11:38:51.000Z" itemprop="datePublished">2016-06-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/04/install-python3/">Centos安装python3</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install zlib zlib-devel openssl openssl-devel</span><br></pre></td></tr></table></figure>
+<p><strong>Optional</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install readline-devel sqlite-devel libbz2</span><br></pre></td></tr></table></figure></p>
+<h1 id="下载python3-5源码，编译安装，默认位置（-usr-local-bin）即可"><a href="#下载python3-5源码，编译安装，默认位置（-usr-local-bin）即可" class="headerlink" title="下载python3.5源码，编译安装，默认位置（/usr/local/bin）即可"></a>下载python3.5源码，编译安装，默认位置（<code>/usr/local/bin</code>）即可</h1><p>删除原有python命令到python2的链接，并建立到python3的新链接<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo rm /usr/bin/python</span><br><span class="line">ln -s /usr/local/bin/python3.5 /usr/bin/python</span><br></pre></td></tr></table></figure></p>
+<p>另外，记得更新yum配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/bin/yum</span><br></pre></td></tr></table></figure></p>
+<p>将第一行<code>#!/usr/bin/python</code>修改为<code>#!/usr/bin/python2</code></p>
+<h1 id="Install-setuptools"><a href="#Install-setuptools" class="headerlink" title="Install setuptools"></a>Install setuptools</h1><p>pip安装前需要先安装setuptools<br>在python官网搜索并下载setuptools源码<br>解压，进入目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python ez_setup.py</span><br></pre></td></tr></table></figure></p>
+<p>如果安装python3时第一节提到的依赖关系都有就不会报错。否则就检查依赖关系是否装完整，并重新编译安装python3</p>
+<h1 id="Install-pip"><a href="#Install-pip" class="headerlink" title="Install pip"></a>Install pip</h1><p>参考<a href="https://pip.pypa.io/en/stable/installing/" target="_blank" rel="external">pip’s installation instructions</a><br>下载<code>get-pip.py</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python get-pip.py</span><br></pre></td></tr></table></figure></p>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><a href="https://www.python.org" target="_blank" rel="external">Python官网</a><br><a href="http://stackoverflow.com/questions/6587507/how-to-install-pip-with-python-3" target="_blank" rel="external">sof上的帖子</a></p>
+<h2 id="测试：安装Pillow"><a href="#测试：安装Pillow" class="headerlink" title="测试：安装Pillow"></a>测试：安装Pillow</h2><p>依赖<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install libjpeg-devel libpng-devel</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fengjunpku.github.io/2016/06/04/install-python3/" data-id="cip1381si0004w0msvgbo6jwe" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-poem-at-nangjing" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/06/03/poem-at-nangjing/" class="article-date">
@@ -106,7 +154,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fengjunpku.github.io/2016/06/03/poem-at-nangjing/" data-id="ciozpn9d20009u4mssd0588nw" class="article-share-link">Share</a>
+      <a data-url="http://fengjunpku.github.io/2016/06/03/poem-at-nangjing/" data-id="cip1381so0008w0mstbc2gfjj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mood/">mood</a></li></ul>
@@ -148,7 +196,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fengjunpku.github.io/2016/06/03/Untitle-20160603/" data-id="ciozpn9cu0004u4ms240y7zd2" class="article-share-link">Share</a>
+      <a data-url="http://fengjunpku.github.io/2016/06/03/Untitle-20160603/" data-id="cip1381s10000w0msdxpyj2z2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mood/">mood</a></li></ul>
@@ -238,7 +286,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fengjunpku.github.io/2016/06/03/Scrapy-Sample/" data-id="ciozpn9ct0003u4mshbb1e1me" class="article-share-link">Share</a>
+      <a data-url="http://fengjunpku.github.io/2016/06/03/Scrapy-Sample/" data-id="cip1381s80001w0ms60gtm4ve" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/scrapy/">scrapy</a></li></ul>
@@ -290,7 +338,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fengjunpku.github.io/2016/06/02/bloom-filter/" data-id="ciozpn9cx0006u4ms7cyrmlr7" class="article-share-link">Share</a>
+      <a data-url="http://fengjunpku.github.io/2016/06/02/bloom-filter/" data-id="cip1381sl0006w0msfkwd888v" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm/">algorithm</a></li></ul>
@@ -348,7 +396,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fengjunpku.github.io/2016/05/30/OpenMP_Intro/" data-id="ciozpn9cl0001u4mslurdc8tu" class="article-share-link">Share</a>
+      <a data-url="http://fengjunpku.github.io/2016/05/30/OpenMP_Intro/" data-id="cip1381t7000mw0msriagnqq0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li></ul>
@@ -388,7 +436,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fengjunpku.github.io/2016/05/30/IPv6_Intro/" data-id="ciozpn9cf0000u4msy2onkoin" class="article-share-link">Share</a>
+      <a data-url="http://fengjunpku.github.io/2016/05/30/IPv6_Intro/" data-id="cip1381sf0003w0msaxbdo2oc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
@@ -484,7 +532,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fengjunpku.github.io/2016/05/30/git_note/" data-id="ciozpn9d10008u4mszho1715r" class="article-share-link">Share</a>
+      <a data-url="http://fengjunpku.github.io/2016/05/30/git_note/" data-id="cip1381sq0009w0ms6btbizdg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
@@ -508,7 +556,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/mood/" style="font-size: 20px;">mood</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/scrapy/" style="font-size: 10px;">scrapy</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
+      <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/mood/" style="font-size: 20px;">mood</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/scrapy/" style="font-size: 10px;">scrapy</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
     </div>
   </div>
 
@@ -530,6 +578,10 @@
       <ul>
         
           <li>
+            <a href="/2016/06/04/install-python3/">Centos安装python3</a>
+          </li>
+        
+          <li>
             <a href="/2016/06/03/poem-at-nangjing/">金陵春夜</a>
           </li>
         
@@ -543,10 +595,6 @@
         
           <li>
             <a href="/2016/06/02/bloom-filter/">Bloom-Filter</a>
-          </li>
-        
-          <li>
-            <a href="/2016/05/30/OpenMP_Intro/">OpenMP入门</a>
           </li>
         
       </ul>
