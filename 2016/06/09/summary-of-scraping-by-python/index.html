@@ -3,21 +3,69 @@
 <head>
   <meta charset="utf-8">
   
-  <title>IPv6地址格式 | 熊窝</title>
+  <title>python爬虫总结 | 熊窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="IPv6的地址长度是128位（bit）。将这128位的地址按每16位划分为一个段，将每个段转换成十六进制数字，并用冒号隔开。例如：2000:0000:0000:0000:0001:2345:6789:abcd这个地址很长，可以用两种方法对这个地址进行压缩，
-前导零压缩法：将每一段的前导零省略，但是每一段都至少应该有一个数字例如：2000:0:0:0:1:2345:6789:abcd双冒号法：如果一">
+  <meta name="description" content="页面获取
+urllib2
+request
+qtwebkit
+ghost.py
+selenium+PhantomJS页面解析
+bs4
+xpath
+re 正则表达式文件读取
+pdf pdfminerurl管理
+set 
+dict 
+hash map
+Bloom Filter : 简单例子数据存储
+数据库
+缓存 redis
+持久 mysql mongoDB并发：多线程&amp;amp;多进程
+threading">
 <meta property="og:type" content="article">
-<meta property="og:title" content="IPv6地址格式">
-<meta property="og:url" content="http://fengjunpku.github.io/2016/05/30/IPv6_Intro/index.html">
+<meta property="og:title" content="python爬虫总结">
+<meta property="og:url" content="http://fengjunpku.github.io/2016/06/09/summary-of-scraping-by-python/index.html">
 <meta property="og:site_name" content="熊窝">
-<meta property="og:description" content="IPv6的地址长度是128位（bit）。将这128位的地址按每16位划分为一个段，将每个段转换成十六进制数字，并用冒号隔开。例如：2000:0000:0000:0000:0001:2345:6789:abcd这个地址很长，可以用两种方法对这个地址进行压缩，
-前导零压缩法：将每一段的前导零省略，但是每一段都至少应该有一个数字例如：2000:0:0:0:1:2345:6789:abcd双冒号法：如果一">
-<meta property="og:updated_time" content="2016-05-30T14:03:50.980Z">
+<meta property="og:description" content="页面获取
+urllib2
+request
+qtwebkit
+ghost.py
+selenium+PhantomJS页面解析
+bs4
+xpath
+re 正则表达式文件读取
+pdf pdfminerurl管理
+set 
+dict 
+hash map
+Bloom Filter : 简单例子数据存储
+数据库
+缓存 redis
+持久 mysql mongoDB并发：多线程&amp;amp;多进程
+threading">
+<meta property="og:updated_time" content="2016-06-09T14:19:14.395Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IPv6地址格式">
-<meta name="twitter:description" content="IPv6的地址长度是128位（bit）。将这128位的地址按每16位划分为一个段，将每个段转换成十六进制数字，并用冒号隔开。例如：2000:0000:0000:0000:0001:2345:6789:abcd这个地址很长，可以用两种方法对这个地址进行压缩，
-前导零压缩法：将每一段的前导零省略，但是每一段都至少应该有一个数字例如：2000:0:0:0:1:2345:6789:abcd双冒号法：如果一">
+<meta name="twitter:title" content="python爬虫总结">
+<meta name="twitter:description" content="页面获取
+urllib2
+request
+qtwebkit
+ghost.py
+selenium+PhantomJS页面解析
+bs4
+xpath
+re 正则表达式文件读取
+pdf pdfminerurl管理
+set 
+dict 
+hash map
+Bloom Filter : 简单例子数据存储
+数据库
+缓存 redis
+持久 mysql mongoDB并发：多线程&amp;amp;多进程
+threading">
   
   
     <link rel="icon" href="/favicon.png">
@@ -66,10 +114,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-IPv6_Intro" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-summary-of-scraping-by-python" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/05/30/IPv6_Intro/" class="article-date">
-  <time datetime="2016-05-30T14:03:20.000Z" itemprop="datePublished">2016-05-30</time>
+    <a href="/2016/06/09/summary-of-scraping-by-python/" class="article-date">
+  <time datetime="2016-06-09T14:18:39.000Z" itemprop="datePublished">2016-06-09</time>
 </a>
     
   </div>
@@ -80,7 +128,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      IPv6地址格式
+      python爬虫总结
     </h1>
   
 
@@ -88,16 +136,36 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>IPv6的地址长度是128位（bit）。<br>将这128位的地址按每16位划分为一个段，将每个段转换成十六进制数字，并用冒号隔开。<br>例如：2000:0000:0000:0000:0001:2345:6789:abcd<br>这个地址很长，可以用两种方法对这个地址进行压缩，</p>
-<p>前导零压缩法：<br>将每一段的前导零省略，但是每一段都至少应该有一个数字<br>例如：2000:0:0:0:1:2345:6789:abcd<br>双冒号法：<br>如果一个以冒号十六进制数表示法表示的IPv6地址中，如果几个连续的段值都是0，那么这些0可以简记为::。每个地址中只能有一个::。<br>例如：2000::1:2345:6789:abcd</p>
+        <h2 id="页面获取"><a href="#页面获取" class="headerlink" title="页面获取"></a>页面获取</h2><ul>
+<li>urllib2</li>
+<li>request</li>
+<li>qtwebkit</li>
+<li>ghost.py</li>
+<li>selenium+PhantomJS<h2 id="页面解析"><a href="#页面解析" class="headerlink" title="页面解析"></a>页面解析</h2></li>
+<li>bs4</li>
+<li>xpath</li>
+<li>re 正则表达式<h2 id="文件读取"><a href="#文件读取" class="headerlink" title="文件读取"></a>文件读取</h2></li>
+<li>pdf pdfminer<h2 id="url管理"><a href="#url管理" class="headerlink" title="url管理"></a>url管理</h2></li>
+<li>set </li>
+<li>dict </li>
+<li>hash map</li>
+<li>Bloom Filter : <a href="http://billmill.org/bloomfilter-tutorial/" target="_blank" rel="external">简单例子</a><h2 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h2></li>
+<li>数据库</li>
+<li>缓存 redis</li>
+<li>持久 mysql mongoDB<h2 id="并发：多线程-amp-多进程"><a href="#并发：多线程-amp-多进程" class="headerlink" title="并发：多线程&amp;多进程"></a>并发：多线程&amp;多进程</h2></li>
+<li>threading</li>
+<li>multiprocessing<h2 id="分布式"><a href="#分布式" class="headerlink" title="分布式"></a>分布式</h2><h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2></li>
+<li>scrapy<h2 id="一些问题"><a href="#一些问题" class="headerlink" title="一些问题"></a>一些问题</h2></li>
+<li>安装scrapy前<br><code>yum install libxslt-devel libxml2-devel python-devel libffi-devel</code></li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fengjunpku.github.io/2016/05/30/IPv6_Intro/" data-id="cip8e4fp40000jwmsuf5exadv" class="article-share-link">Share</a>
+      <a data-url="http://fengjunpku.github.io/2016/06/09/summary-of-scraping-by-python/" data-id="cip8e4fpr000djwmsv1msg26a" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
 
     </footer>
   </div>
@@ -105,19 +173,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/05/30/OpenMP_Intro/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          OpenMP入门
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/05/30/git_note/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/06/04/install-python3/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">git学习笔记</div>
+      <div class="article-nav-title">Centos安装python3</div>
     </a>
   
 </nav>
