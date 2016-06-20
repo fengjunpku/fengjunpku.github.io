@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Chromebook折腾Linux | 熊窝</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言之前分别试过用crouton方法和chrx方法快速安装过Ubuntu系统，但每次只要很久不使用，系统完全关机后，chromeOS更新就会重置系统。所以这次下定决心要将原生系统完全删除。
+材料
+Acer C720 32G
+galliumos-haswell-1.0.iso
+8G U盘2个备份ChromeOS备份工具 ChromeOS Recovery Utility
+
+按照指示制作ChromeO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Chromebook折腾Linux">
+<meta property="og:url" content="http://fengjunpku.github.io/2016/06/20/Chromebook-install-linux/index.html">
+<meta property="og:site_name" content="熊窝">
+<meta property="og:description" content="前言之前分别试过用crouton方法和chrx方法快速安装过Ubuntu系统，但每次只要很久不使用，系统完全关机后，chromeOS更新就会重置系统。所以这次下定决心要将原生系统完全删除。
+材料
+Acer C720 32G
+galliumos-haswell-1.0.iso
+8G U盘2个备份ChromeOS备份工具 ChromeOS Recovery Utility
+
+按照指示制作ChromeO">
+<meta property="og:updated_time" content="2016-06-20T11:50:57.693Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chromebook折腾Linux">
+<meta name="twitter:description" content="前言之前分别试过用crouton方法和chrx方法快速安装过Ubuntu系统，但每次只要很久不使用，系统完全关机后，chromeOS更新就会重置系统。所以这次下定决心要将原生系统完全删除。
+材料
+Acer C720 32G
+galliumos-haswell-1.0.iso
+8G U盘2个备份ChromeOS备份工具 ChromeOS Recovery Utility
+
+按照指示制作ChromeO">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">熊窝</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">miaomiaoxiong.net</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://fengjunpku.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Chromebook-install-linux" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/20/Chromebook-install-linux/" class="article-date">
+  <time datetime="2016-06-20T11:48:25.000Z" itemprop="datePublished">2016-06-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Chromebook折腾Linux
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之前分别试过用<code>crouton</code>方法和<code>chrx</code>方法快速安装过<code>Ubuntu</code>系统，但每次只要很久不使用，系统完全关机后，<code>chromeOS</code>更新就会重置系统。所以这次下定决心要将原生系统完全删除。</p>
+<h2 id="材料"><a href="#材料" class="headerlink" title="材料"></a>材料</h2><ul>
+<li>Acer C720 32G</li>
+<li>galliumos-haswell-1.0.iso</li>
+<li>8G U盘2个<h2 id="备份ChromeOS"><a href="#备份ChromeOS" class="headerlink" title="备份ChromeOS"></a>备份ChromeOS</h2>备份工具 <a href="https://chrome.google.com/webstore/detail/chromebook-recovery-utili/jndclpdbaamdhonoechobihbbiimdgai" target="_blank" rel="external">ChromeOS Recovery Utility</a></li>
+</ul>
+<p>按照指示制作ChromeOS恢复盘，以防万一。</p>
+<h2 id="下载制作linux启动盘"><a href="#下载制作linux启动盘" class="headerlink" title="下载制作linux启动盘"></a>下载制作linux启动盘</h2><p><a href="https://galliumos.org/download.html" target="_blank" rel="external">下载页面</a></p>
+<p>我的机器(C720)的CPU是<code>Haswell</code>，所以下载<code>haswell</code>版的镜像。</p>
+<p><a href="https://wiki.galliumos.org/Hardware_Compatibility" target="_blank" rel="external">硬件兼容性列表</a></p>
+<p><a href="https://wiki.galliumos.org/Installing/Creating_Bootable_USB" target="_blank" rel="external">制作镜像</a></p>
+<h2 id="开发者模式"><a href="#开发者模式" class="headerlink" title="开发者模式"></a>开发者模式</h2><p>The next step is to reboot your device in developer mode. This is done by holding down the Escape and Refresh button and then tapping the Power button. When the device reboots, you will be greeted by a screen with a warning. Tap CTRL+D to continue on. You now have access to the developer mode and can enable the necessary boot flags. Here’s what you need to do:</p>
+<ol>
+<li>Press <code>CTRL+Alt+T</code></li>
+<li>In the crosh screen, type <code>shell</code> and hit Enter</li>
+<li>Enable to necessary flags with the terminal command: <code>sudo crossystem dev_boot_usb=1 dev_boot_legacy=1</code></li>
+</ol>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>插入U盘，重启系统，按<code>CRTL+L</code>选择U盘启动，按指示安装</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="https://github.com/reynhout/chrx" target="_blank" rel="external">chrx</a></li>
+<li><a href="https://galliumos.org" target="_blank" rel="external">GalliumOS</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fengjunpku.github.io/2016/06/20/Chromebook-install-linux/" data-id="cipnymts20000wwmsmfato3if" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/chromebook/">chromebook</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/06/09/summary-of-scraping-by-python/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">python爬虫总结</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/chromebook/" style="font-size: 10px;">chromebook</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/mood/" style="font-size: 15px;">mood</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/scrapy/" style="font-size: 10px;">scrapy</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/06/20/Chromebook-install-linux/">Chromebook折腾Linux</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/09/summary-of-scraping-by-python/">python爬虫总结</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/04/install-python3/">Centos安装python3</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/03/poem-at-nangjing/">金陵春夜</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/03/Untitle-20160603/">无题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Miaomiaoxiong<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
