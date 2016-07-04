@@ -64,6 +64,54 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-pyenv" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/04/pyenv/" class="article-date">
+  <time datetime="2016-07-04T11:02:18.000Z" itemprop="datePublished">2016-07-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/04/pyenv/">python多环境管理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>可以借助<code>pyenv</code>和<code>virtualenv</code>在单机上搭建多版本<code>python</code>虚拟环境，不搞乱系统自带的python。</p>
+<ul>
+<li><code>pyenv</code>：可以帮助你在一台开发机上建立多个版本的python环境， 并提供方便的切换方法。</li>
+<li><code>virtualenv</code>：提供了一种功能， 就是将一个目录建立为一个虚拟的python环境， 这样的话， 用户可以建立多个虚拟环境， 每个环境里面的python版本可以是不同的， 也可以是相同的， 而且环境之间相互独立。</li>
+</ul>
+<p>举个例子，首先我们可以用<code>pyenv</code>安装多个<code>python</code>版本， 比如安装了2.6, 2.7, 3.5 三个版本。 用户可以随意切换当前默认的python版本。 但这时候， 每个版本的环境仍是唯一的， 如果我们想在环境中安装一些库的话， 还是会导致这个版本的环境被修改。 这个时候， 如果我们用<code>virtualenv</code>去建立虚拟环境， 就可以完全保证系统路径的干净。无论你在虚拟环境中安装了什么程序， 都不会影响已安装版本的系统环境。</p>
+<h2 id="安装pyenv"><a href="#安装pyenv" class="headerlink" title="安装pyenv"></a>安装pyenv</h2><p>参见<a href="https://github.com/yyuu/pyenv" target="_blank" rel="external">pyenv的github页面</a></p>
+<h3 id="Mac-OS"><a href="#Mac-OS" class="headerlink" title="Mac OS"></a>Mac OS</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew update</span><br><span class="line">brew install pyenv</span><br></pre></td></tr></table></figure>
+<p>然后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew info pyenv</span><br></pre></td></tr></table></figure></p>
+<p>按照说明配置，即指明pyenv位置，并提供自动补全<br><code>pyenv</code>的默认目录在<code>~/.pyenv</code></p>
+<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><p><code>pyenv install --list</code> 查看可安装的<code>python</code>版本<br><code>pyenv install &lt;version&gt;</code> 安装某个版本<br><code>pyenv versions</code> 查看本机所有版本，<code>system</code>为系统python版本，<code>*</code>前缀为激活版本<br><code>pyenv global &lt;version&gt;</code> 切换到某个已安装版本<br><code>pyenv uninstall &lt;version&gt;</code> 删除某个版本</p>
+<h2 id="配合virtualenv"><a href="#配合virtualenv" class="headerlink" title="配合virtualenv"></a>配合<code>virtualenv</code></h2><p>一般在<code>pyenv</code>中已经集成了<code>virtualenv</code><br><code>pyenv virtualenv &lt;version&gt; &lt;env_name&gt;</code> 创建一个虚拟环境，目录<code>~/.pyenv/versions/</code><br><code>pyenv versions</code> 可以查看<br><code>pyenv activate &lt;env_name&gt;</code> 激活虚拟环境<br><code>pyenv deactive &lt;env_name&gt;</code> 退出虚拟环境</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fengjunpku.github.io/2016/07/04/pyenv/" data-id="ciq7x4plb00092gmsemcx722s" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Chromebook-install-linux" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/06/20/Chromebook-install-linux/" class="article-date">
@@ -112,7 +160,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fengjunpku.github.io/2016/06/20/Chromebook-install-linux/" data-id="cipnymts20000wwmsmfato3if" class="article-share-link">Share</a>
+      <a data-url="http://fengjunpku.github.io/2016/06/20/Chromebook-install-linux/" data-id="ciq7x4pl800082gmsqyz8cswt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/chromebook/">chromebook</a></li></ul>
@@ -172,7 +220,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fengjunpku.github.io/2016/06/09/summary-of-scraping-by-python/" data-id="cipnymtt8000nwwms9urioulm" class="article-share-link">Share</a>
+      <a data-url="http://fengjunpku.github.io/2016/06/09/summary-of-scraping-by-python/" data-id="ciq7x4plm000f2gmst7nyc18h" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
@@ -220,7 +268,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fengjunpku.github.io/2016/06/04/install-python3/" data-id="cipnymtth000qwwms8r3lp3cu" class="article-share-link">Share</a>
+      <a data-url="http://fengjunpku.github.io/2016/06/04/install-python3/" data-id="ciq7x4pm4000t2gms1owueiz6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
@@ -274,7 +322,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fengjunpku.github.io/2016/06/03/poem-at-nangjing/" data-id="cipnymtte000owwmsmc2rgqn2" class="article-share-link">Share</a>
+      <a data-url="http://fengjunpku.github.io/2016/06/03/poem-at-nangjing/" data-id="ciq7x4plk000d2gmsi055ihfo" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mood/">mood</a></li></ul>
@@ -316,7 +364,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fengjunpku.github.io/2016/06/03/Untitle-20160603/" data-id="cipnymtsd0003wwmszan635ej" class="article-share-link">Share</a>
+      <a data-url="http://fengjunpku.github.io/2016/06/03/Untitle-20160603/" data-id="ciq7x4pl200032gmsfxx9sm0i" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mood/">mood</a></li></ul>
@@ -407,7 +455,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fengjunpku.github.io/2016/06/03/Scrapy-Sample/" data-id="cipnymtsk0008wwmslrm3q2la" class="article-share-link">Share</a>
+      <a data-url="http://fengjunpku.github.io/2016/06/03/Scrapy-Sample/" data-id="ciq7x4pl500062gms1b1og8mu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/scrapy/">scrapy</a></li></ul>
@@ -459,7 +507,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fengjunpku.github.io/2016/06/02/bloom-filter/" data-id="cipnymtse0004wwmsnel93v90" class="article-share-link">Share</a>
+      <a data-url="http://fengjunpku.github.io/2016/06/02/bloom-filter/" data-id="ciq7x4pl400042gmsto167sog" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm/">algorithm</a></li></ul>
@@ -517,7 +565,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fengjunpku.github.io/2016/05/30/OpenMP_Intro/" data-id="cipnymtsh0006wwmsuqtmthj3" class="article-share-link">Share</a>
+      <a data-url="http://fengjunpku.github.io/2016/05/30/OpenMP_Intro/" data-id="ciq7x4pky00012gmsbx7rbvtt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li></ul>
@@ -557,7 +605,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fengjunpku.github.io/2016/05/30/IPv6_Intro/" data-id="cipnymts80001wwms939hv3gh" class="article-share-link">Share</a>
+      <a data-url="http://fengjunpku.github.io/2016/05/30/IPv6_Intro/" data-id="ciq7x4pkr00002gms03y9v2l8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
@@ -569,103 +617,11 @@
 
 
   
-    <article id="post-git_note" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/05/30/git_note/" class="article-date">
-  <time datetime="2016-05-30T13:59:43.000Z" itemprop="datePublished">2016-05-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/30/git_note/">git学习笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="用户配置"><a href="#用户配置" class="headerlink" title="用户配置"></a>用户配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;Your Name&quot;</span><br><span class="line">git config --global user.email &quot;email@example.com&quot;</span><br></pre></td></tr></table></figure>
-<p>如果用了 <code>--global</code> 选项，那么更改的配置文件就是位于你用户主目录下的那个(~/.gitconfig)，以后你所有的项目都会默认使用这里配置的用户信息。如果要在某个特定的项目中使用其他名字或者电邮，只要去掉 –global 选项重新配置即可，新的设定保存在当前项目的<code>.git/config</code>文件里。</p>
-<p>要检查已有的配置信息，可以使用 <code>git config --list</code> 命令</p>
-<h2 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h2><p>什么是版本库呢？版本库又名仓库，英文名repository，你可以简单理解成一个目录，这个目录里面的所有文件都可以被Git管理起来，每个文件的修改、删除，Git都能跟踪，以便任何时刻都可以追踪历史，或者在将来某个时刻可以“还原”。</p>
-<p>所以，创建一个版本库非常简单，（以learnGit文件夹为例）：<br>首先，选择一个合适的地方，创建一个空目录；第二步，通过<code>git init</code>命令把这个目录变成Git可以管理的仓库。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir learnGit</span><br><span class="line">$ cd learnGit</span><br><span class="line">$ git init</span><br><span class="line">Initialized empty Git repository in ...</span><br></pre></td></tr></table></figure></p>
-<p>把一个文件放到Git仓库只需要两步：<br>第一步，用命令<code>git add</code>告诉Git，把文件添加到仓库；<br>第二步，用命令<code>git commit</code>告诉Git，把文件提交到仓库。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add filename /(filename2 filename3)</span><br><span class="line">  git commit -m &quot;some discriptions&quot;</span><br></pre></td></tr></table></figure></p>
-<p>  简单解释一下<code>git commit</code>命令，<code>-m</code>后面输入的是本次提交的说明，可以输入任意内容，当然最好是有意义的，这样你就能从历史记录里方便地找到改动记录。</p>
-<h2 id="时光穿梭机"><a href="#时光穿梭机" class="headerlink" title="时光穿梭机"></a>时光穿梭机</h2><p>  <code>git status</code> 命令可以让我们时刻掌握仓库当前的状态<br>  <code>git diff filename</code> 顾名思义就是查看difference，显示的格式正是Unix通用的diff格式</p>
-<p>  知道了对文件作了什么修改后，再把它提交到仓库就放心多了，提交修改和提交新文件是一样的两步<code>add+commit</code></p>
-<h3 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h3><p>  反复提交多次后，有时需要从某一次commit恢复。<br>  <code>git log</code> 命令显示从最近到最远的提交日志<br>  <code>git log --pretty=oneline</code> 如果嫌输出信息太多，看得眼花缭乱的，可以试试加上<code>--pretty=oneline</code>参数</p>
-<p>  好了，现在我们启动时光穿梭机，准备回退到上一个版本：<br>  首先，Git必须知道当前版本是哪个版本，在Git中，用<code>HEAD</code>表示当前版本，上一个版本就是<code>HEAD^</code>，上上一个版本就是<code>HEAD^^</code>，当然往上100个版本写100个^比较容易数不过来，所以写成<code>HEAD~100</code>。</p>
-<p>  回退版本：<br>  <code>git reset --hard HEAD^</code> <code>--hard</code>参数有啥意义？（现版本消失了）</p>
-<p>  后悔药：<br>  <code>git reflog</code> 用来记录你的每一次命令<br>  由此找到<code>commit id</code><br>  <code>git reset --hard (id)</code> 恢复回退</p>
-<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p>  <code>HEAD</code>指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令<code>git reset --hard commit_id</code>。<br>  穿梭前，用<code>git log</code>可以查看提交历史，以便确定要回退到哪个版本。<br>  要重返未来，用<code>git reflog</code>查看命令历史，以便确定要回到未来的哪个版本。</p>
-<h3 id="工作区-working-dir-gt-暂存区-stage-gt-版本库"><a href="#工作区-working-dir-gt-暂存区-stage-gt-版本库" class="headerlink" title="工作区(working dir)-&gt;暂存区(stage)-&gt;版本库"></a>工作区(working dir)-&gt;暂存区(stage)-&gt;版本库</h3><h3 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h3><p>  <strong>还没有<code>add</code></strong><br>  <code>git checkout -- file</code> 可以让这个文件回到最近一次<code>git commit</code>或<code>git add</code>时的状态<br>  <code>git checkout -- file</code> 命令中的<code>--</code>很重要，没有<code>--</code>，就变成了“切换到另一个分支”的命令</p>
-<p>  <strong>如果已经<code>add</code>而没有<code>commit</code>的修改需要撤销？</strong><br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD file</span><br><span class="line">git checkout -- file</span><br></pre></td></tr></table></figure></p>
-<p>  <strong>已经<code>commit</code></strong><br>  可以回退到上一个版本。不过，这是有条件的，就是你还没有把自己的本地版本库推送到远程。</p>
-<h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git rm file</span><br><span class="line">git commit -m &quot;xxxx&quot;</span><br></pre></td></tr></table></figure>
-<p>  错删?</p>
-<ol>
-<li>只是<code>rm file</code><br><code>git checkout -- file</code></li>
-<li>用<code>git rm file</code>删除但还没有提交<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD file</span><br><span class="line">git checkout -- file</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="远程仓库–github"><a href="#远程仓库–github" class="headerlink" title="远程仓库–github"></a>远程仓库–github</h2><ol>
-<li><p>创建ssh-key</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在用户主目录里找到<code>.ssh</code>目录，里面有<code>id_rsa</code>和<code>id_rsa.pub</code>两个文件，这两个就是SSH Key的秘钥对，<code>id_rsa</code>是私钥，不能泄露出去，<code>id_rsa.pub</code>是公钥，可以放心地告诉任何人</p>
-</li>
-<li><p>登陆GitHub，打开“Account settings”，“SSH Keys”页面；然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴<code>id_rsa.pub</code>文件的内容；点“Add Key”，你就应该看到已经添加的Key。<br>当然，GitHub允许你添加多个Key。假定你有若干电脑，你一会儿在公司提交，一会儿在家里提交，只要把每台电脑的Key都添加到GitHub，就可以在每台电脑上往GitHub推送了。</p>
-</li>
-<li><p>在github上建立同名仓库</p>
-<p>5.在本地仓库下运行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:fengjunpku/learnGit.git #(用户名/仓库名)</span><br><span class="line">git push -u origin master #推送到远程</span><br></pre></td></tr></table></figure>
-<p>一是添加远程仓库，添加后，远程库的名字就是origin，这是Git默认的叫法，也可以改成别的，但是origin这个名字一看就知道是远程库。<br>二是推送，把本地库的内容推送到远程，用git push命令，实际上是把当前分支master推送到远程。<br>由于远程库是空的，我们第一次推送<code>master</code>分支时，加上了<code>-u</code>参数，Git不但会把本地的<code>master</code>分支内容推送的远程新的<code>master</code>分支，还会把本地的<code>master</code>分支和远程的<code>master</code>分支关联起来，在以后的推送或者拉取时就可以简化命令。</p>
-<p><code>git clone</code> 本地没有，从远程拷贝一份<br><code>git pull origin master</code> 将本地与远程更新一致</p>
-</li>
-</ol>
-<h3 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h3><p>  要关联一个远程库，使用命令<code>git remote add origin git@server-name:path/repo-name.git</code>；<br>  关联后，使用命令<code>git push -u origin maste</code>r第一次推送<code>master</code>分支的所有内容；<br>  此后，每次本地提交后，只要有必要，就可以使用命令<code>git push origin master</code>推送最新修改；</p>
-<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><ol>
-<li><p>创建<code>test</code>分支并切换到该分支</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch test #创建分支</span><br><span class="line">git checkout test #切换分支</span><br></pre></td></tr></table></figure>
-<p>或者简写为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b test</span><br></pre></td></tr></table></figure>
-<p>然后用<code>git branch</code>命令查看分支状态，当前分支前面会标一个<code>*</code>号。<br>然后，我们就可以在<code>test</code>分支上正常修改、提交。</p>
-</li>
-<li><p>合并分支</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout master #切回主分支</span><br><span class="line">git merge test</span><br></pre></td></tr></table></figure>
-<p>合并完成后，就可以放心地删除<code>test</code>分支了：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d test</span><br></pre></td></tr></table></figure>
-<p>删除后，<code>git branch</code>查看一下，就只剩下<code>master</code>分支了。<br>因为创建、合并和删除分支非常快，所以<code>Git</code>鼓励你使用分支完成某个任务，合并后再删掉分支，这和直接在<code>master</code>分支上工作效果是一样的，但过程更安全。</p>
-<h2 id="远程分支"><a href="#远程分支" class="headerlink" title="远程分支"></a>远程分支</h2><p>想把<code>test</code>分支推送到远程</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin test</span><br></pre></td></tr></table></figure>
-<p>删除远程分支</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin --delete test</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fengjunpku.github.io/2016/05/30/git_note/" data-id="cipnymtsq0009wwmsct4qw616" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
 
 
-  
-
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
+  </nav>
 </section>
         
           <aside id="sidebar">
@@ -686,7 +642,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
     </div>
   </div>
 
@@ -697,6 +653,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/07/04/pyenv/">python多环境管理</a>
+          </li>
         
           <li>
             <a href="/2016/06/20/Chromebook-install-linux/">Chromebook折腾Linux</a>
@@ -712,10 +672,6 @@
         
           <li>
             <a href="/2016/06/03/poem-at-nangjing/">金陵春夜</a>
-          </li>
-        
-          <li>
-            <a href="/2016/06/03/Untitle-20160603/">无题</a>
           </li>
         
       </ul>
