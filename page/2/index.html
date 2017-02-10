@@ -64,6 +64,46 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-IPv6_Intro" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/30/IPv6_Intro/" class="article-date">
+  <time datetime="2016-05-30T14:03:20.000Z" itemprop="datePublished">2016-05-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/30/IPv6_Intro/">IPv6地址格式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>IPv6的地址长度是128位（bit）。<br>将这128位的地址按每16位划分为一个段，将每个段转换成十六进制数字，并用冒号隔开。<br>例如：2000:0000:0000:0000:0001:2345:6789:abcd<br>这个地址很长，可以用两种方法对这个地址进行压缩，</p>
+<p>前导零压缩法：<br>将每一段的前导零省略，但是每一段都至少应该有一个数字<br>例如：2000:0:0:0:1:2345:6789:abcd<br>双冒号法：<br>如果一个以冒号十六进制数表示法表示的IPv6地址中，如果几个连续的段值都是0，那么这些0可以简记为::。每个地址中只能有一个::。<br>例如：2000::1:2345:6789:abcd</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fengjunpku.github.io/2016/05/30/IPv6_Intro/" data-id="ciyzkjrrc0001hwvpijptjwn2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-git_note" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/05/30/git_note/" class="article-date">
@@ -86,12 +126,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="用户配置"><a href="#用户配置" class="headerlink" title="用户配置"></a>用户配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;Your Name&quot;</span><br><span class="line">git config --global user.email &quot;email@example.com&quot;</span><br></pre></td></tr></table></figure>
+        <h2 id="用户配置"><a href="#用户配置" class="headerlink" title="用户配置"></a>用户配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name &quot;Your Name&quot;</div><div class="line">git config --global user.email &quot;email@example.com&quot;</div></pre></td></tr></table></figure>
 <p>如果用了 <code>--global</code> 选项，那么更改的配置文件就是位于你用户主目录下的那个(~/.gitconfig)，以后你所有的项目都会默认使用这里配置的用户信息。如果要在某个特定的项目中使用其他名字或者电邮，只要去掉 –global 选项重新配置即可，新的设定保存在当前项目的<code>.git/config</code>文件里。</p>
 <p>要检查已有的配置信息，可以使用 <code>git config --list</code> 命令</p>
 <h2 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h2><p>什么是版本库呢？版本库又名仓库，英文名repository，你可以简单理解成一个目录，这个目录里面的所有文件都可以被Git管理起来，每个文件的修改、删除，Git都能跟踪，以便任何时刻都可以追踪历史，或者在将来某个时刻可以“还原”。</p>
-<p>所以，创建一个版本库非常简单，（以learnGit文件夹为例）：<br>首先，选择一个合适的地方，创建一个空目录；第二步，通过<code>git init</code>命令把这个目录变成Git可以管理的仓库。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir learnGit</span><br><span class="line">$ cd learnGit</span><br><span class="line">$ git init</span><br><span class="line">Initialized empty Git repository in ...</span><br></pre></td></tr></table></figure></p>
-<p>把一个文件放到Git仓库只需要两步：<br>第一步，用命令<code>git add</code>告诉Git，把文件添加到仓库；<br>第二步，用命令<code>git commit</code>告诉Git，把文件提交到仓库。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add filename /(filename2 filename3)</span><br><span class="line">  git commit -m &quot;some discriptions&quot;</span><br></pre></td></tr></table></figure></p>
+<p>所以，创建一个版本库非常简单，（以learnGit文件夹为例）：<br>首先，选择一个合适的地方，创建一个空目录；第二步，通过<code>git init</code>命令把这个目录变成Git可以管理的仓库。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ mkdir learnGit</div><div class="line">$ cd learnGit</div><div class="line">$ git init</div><div class="line">Initialized empty Git repository in ...</div></pre></td></tr></table></figure></p>
+<p>把一个文件放到Git仓库只需要两步：<br>第一步，用命令<code>git add</code>告诉Git，把文件添加到仓库；<br>第二步，用命令<code>git commit</code>告诉Git，把文件提交到仓库。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git add filename /(filename2 filename3)</div><div class="line">  git commit -m &quot;some discriptions&quot;</div></pre></td></tr></table></figure></p>
 <p>  简单解释一下<code>git commit</code>命令，<code>-m</code>后面输入的是本次提交的说明，可以输入任意内容，当然最好是有意义的，这样你就能从历史记录里方便地找到改动记录。</p>
 <h2 id="时光穿梭机"><a href="#时光穿梭机" class="headerlink" title="时光穿梭机"></a>时光穿梭机</h2><p>  <code>git status</code> 命令可以让我们时刻掌握仓库当前的状态<br>  <code>git diff filename</code> 顾名思义就是查看difference，显示的格式正是Unix通用的diff格式</p>
 <p>  知道了对文件作了什么修改后，再把它提交到仓库就放心多了，提交修改和提交新文件是一样的两步<code>add+commit</code></p>
@@ -101,18 +141,18 @@
 <p>  后悔药：<br>  <code>git reflog</code> 用来记录你的每一次命令<br>  由此找到<code>commit id</code><br>  <code>git reset --hard (id)</code> 恢复回退</p>
 <h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p>  <code>HEAD</code>指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令<code>git reset --hard commit_id</code>。<br>  穿梭前，用<code>git log</code>可以查看提交历史，以便确定要回退到哪个版本。<br>  要重返未来，用<code>git reflog</code>查看命令历史，以便确定要回到未来的哪个版本。</p>
 <h3 id="工作区-working-dir-gt-暂存区-stage-gt-版本库"><a href="#工作区-working-dir-gt-暂存区-stage-gt-版本库" class="headerlink" title="工作区(working dir)-&gt;暂存区(stage)-&gt;版本库"></a>工作区(working dir)-&gt;暂存区(stage)-&gt;版本库</h3><h3 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h3><p>  <strong>还没有<code>add</code></strong><br>  <code>git checkout -- file</code> 可以让这个文件回到最近一次<code>git commit</code>或<code>git add</code>时的状态<br>  <code>git checkout -- file</code> 命令中的<code>--</code>很重要，没有<code>--</code>，就变成了“切换到另一个分支”的命令</p>
-<p>  <strong>如果已经<code>add</code>而没有<code>commit</code>的修改需要撤销？</strong><br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD file</span><br><span class="line">git checkout -- file</span><br></pre></td></tr></table></figure></p>
+<p>  <strong>如果已经<code>add</code>而没有<code>commit</code>的修改需要撤销？</strong><br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git reset HEAD file</div><div class="line">git checkout -- file</div></pre></td></tr></table></figure></p>
 <p>  <strong>已经<code>commit</code></strong><br>  可以回退到上一个版本。不过，这是有条件的，就是你还没有把自己的本地版本库推送到远程。</p>
-<h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git rm file</span><br><span class="line">git commit -m &quot;xxxx&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git rm file</div><div class="line">git commit -m &quot;xxxx&quot;</div></pre></td></tr></table></figure>
 <p>  错删?</p>
 <ol>
 <li>只是<code>rm file</code><br><code>git checkout -- file</code></li>
-<li>用<code>git rm file</code>删除但还没有提交<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD file</span><br><span class="line">git checkout -- file</span><br></pre></td></tr></table></figure>
+<li>用<code>git rm file</code>删除但还没有提交<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git reset HEAD file</div><div class="line">git checkout -- file</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <h2 id="远程仓库–github"><a href="#远程仓库–github" class="headerlink" title="远程仓库–github"></a>远程仓库–github</h2><ol>
 <li><p>创建ssh-key</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</div></pre></td></tr></table></figure>
 </li>
 <li><p>在用户主目录里找到<code>.ssh</code>目录，里面有<code>id_rsa</code>和<code>id_rsa.pub</code>两个文件，这两个就是SSH Key的秘钥对，<code>id_rsa</code>是私钥，不能泄露出去，<code>id_rsa.pub</code>是公钥，可以放心地告诉任何人</p>
 </li>
@@ -120,7 +160,7 @@
 </li>
 <li><p>在github上建立同名仓库</p>
 <p>5.在本地仓库下运行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:fengjunpku/learnGit.git #(用户名/仓库名)</span><br><span class="line">git push -u origin master #推送到远程</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git remote add origin git@github.com:fengjunpku/learnGit.git #(用户名/仓库名)</div><div class="line">git push -u origin master #推送到远程</div></pre></td></tr></table></figure>
 <p>一是添加远程仓库，添加后，远程库的名字就是origin，这是Git默认的叫法，也可以改成别的，但是origin这个名字一看就知道是远程库。<br>二是推送，把本地库的内容推送到远程，用git push命令，实际上是把当前分支master推送到远程。<br>由于远程库是空的，我们第一次推送<code>master</code>分支时，加上了<code>-u</code>参数，Git不但会把本地的<code>master</code>分支内容推送的远程新的<code>master</code>分支，还会把本地的<code>master</code>分支和远程的<code>master</code>分支关联起来，在以后的推送或者拉取时就可以简化命令。</p>
 <p><code>git clone</code> 本地没有，从远程拷贝一份<br><code>git pull origin master</code> 将本地与远程更新一致</p>
 </li>
@@ -128,27 +168,27 @@
 <h3 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h3><p>  要关联一个远程库，使用命令<code>git remote add origin git@server-name:path/repo-name.git</code>；<br>  关联后，使用命令<code>git push -u origin maste</code>r第一次推送<code>master</code>分支的所有内容；<br>  此后，每次本地提交后，只要有必要，就可以使用命令<code>git push origin master</code>推送最新修改；</p>
 <h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><ol>
 <li><p>创建<code>test</code>分支并切换到该分支</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch test #创建分支</span><br><span class="line">git checkout test #切换分支</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git branch test #创建分支</div><div class="line">git checkout test #切换分支</div></pre></td></tr></table></figure>
 <p>或者简写为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b test</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -b test</div></pre></td></tr></table></figure>
 <p>然后用<code>git branch</code>命令查看分支状态，当前分支前面会标一个<code>*</code>号。<br>然后，我们就可以在<code>test</code>分支上正常修改、提交。</p>
 </li>
 <li><p>合并分支</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout master #切回主分支</span><br><span class="line">git merge test</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git checkout master #切回主分支</div><div class="line">git merge test</div></pre></td></tr></table></figure>
 <p>合并完成后，就可以放心地删除<code>test</code>分支了：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d test</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch -d test</div></pre></td></tr></table></figure>
 <p>删除后，<code>git branch</code>查看一下，就只剩下<code>master</code>分支了。<br>因为创建、合并和删除分支非常快，所以<code>Git</code>鼓励你使用分支完成某个任务，合并后再删掉分支，这和直接在<code>master</code>分支上工作效果是一样的，但过程更安全。</p>
 <h2 id="远程分支"><a href="#远程分支" class="headerlink" title="远程分支"></a>远程分支</h2><p>想把<code>test</code>分支推送到远程</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin test</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull origin test</div></pre></td></tr></table></figure>
 <p>删除远程分支</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin --delete test</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin --delete test</div></pre></td></tr></table></figure>
 </li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fengjunpku.github.io/2016/05/30/git_note/" data-id="ciq7x9s8t0008zgms9qn0cuk6" class="article-share-link">Share</a>
+      <a data-url="http://fengjunpku.github.io/2016/05/30/git_note/" data-id="ciyzkjrro000chwvpkum3gf4s" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
@@ -176,7 +216,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/chromebook/" style="font-size: 10px;">chromebook</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/mood/" style="font-size: 15px;">mood</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/scrapy/" style="font-size: 10px;">scrapy</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
+      <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/chromebook/" style="font-size: 10px;">chromebook</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/mood/" style="font-size: 15px;">mood</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/scrapy/" style="font-size: 10px;">scrapy</a> <a href="/tags/software/" style="font-size: 10px;">software</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
     </div>
   </div>
 
@@ -185,7 +225,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
     </div>
   </div>
 
@@ -196,6 +236,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/02/10/Synergy-Intro/">Synergy_Intro</a>
+          </li>
         
           <li>
             <a href="/2016/07/04/pyenv/">python多环境管理</a>
@@ -213,10 +257,6 @@
             <a href="/2016/06/04/install-python3/">Centos安装python3</a>
           </li>
         
-          <li>
-            <a href="/2016/06/03/poem-at-nangjing/">金陵春夜</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -229,7 +269,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 Miaomiaoxiong<br>
+      &copy; 2017 Miaomiaoxiong<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
